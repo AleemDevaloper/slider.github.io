@@ -1,0 +1,180 @@
+#wrapper{
+    
+  .slider{
+    height: 100vh;
+    margin-top: -80px;
+    position: relative;
+
+    .list, .item{
+      position: absolute;
+      inset: 0 0 0 0;
+      overflow: hidden;
+      color: white;
+      opacity: 0;
+      transition: .5s;
+      
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .content{
+        position: absolute;
+        left: 22%;
+        top: 20%;
+        width: 500px;
+        max-width: 80%;
+        z-index: 1;
+        h2{
+          font-size: 90px;
+          margin: 0;
+        }
+      }
+      @media (max-width: 1800px) {
+        .content{
+          position: absolute;
+          left: 10%;
+        }
+      }
+      @media (max-width: 666px) {
+        .content{
+          h2{
+            font-size: 60px;
+          }
+          p:nth-child(1){
+            font-size: 18px;
+          }
+          p:nth-child(3){
+            font-size: 14px;
+          }
+        }
+       
+      }
+      
+      .content, p:nth-child(1){
+        text-transform: uppercase;
+        letter-spacing: 20px;
+        font-size: 20px;
+      }
+      .content, p:nth-child(3){
+        text-transform: capitalize;
+        letter-spacing: 2px;
+        font-size: 16px;
+      }
+      
+    }
+    .list, .act{
+      opacity: 1;
+      z-index: 10;   
+  }
+    .list, .item::after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to top, #000000 30%, transparent);
+    }
+
+  }
+  @keyframes showContent{
+    to{
+     transform: translateY(0);
+     filter: blur(0);
+     opacity: 1;
+    }
+ }
+ .slider, .list,.item .active p:nth-child(1),
+ .slider, .list,.item .active h2,
+ .slider, .list,.item .active p:nth-child(3){
+   transform: translateY(30px);
+   filter: blur(20px);
+   opacity: 0;
+   animation: showContent .5s .7s ease-in-out 1 forwards;
+ }
+ .slider, .list,.active h2{
+   animation-delay: 1s;
+ }
+ .slider, .list,.active p:nth-child(3){
+ animation-duration: 1.3s;
+ }
+
+ .arrows{
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  z-index: 100;
+  @media (max-width: 1500px ) {
+    &{
+      right: 15%;
+    }
+  }
+  button{
+    background-color: grey;
+    border: none;
+    font-family: $f-primary, 'Courier New', Courier, monospace;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: #ffff;
+    transition: .5s;
+  }
+  button:hover{
+    background-color: #fff;
+    color: black;
+  }
+ }
+ .thumbnail{
+  position: absolute;
+  bottom: 50px;
+  z-index: 11;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 250px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  overflow: auto;
+  justify-content: center;
+ }
+ .thumbnail::-webkit-scrollbar{
+     width: 0px;  
+     height: 0px;
+ }
+ .thumbnail{
+  .item{
+   width: 150px;
+   height: 220px;
+   filter: brightness(.5);
+   transition: .5s;
+   flex-shrink: 0;
+   img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+   }
+   .content{
+    position: absolute;
+    inset: auto 10px 10px 10px;
+    color: #fff;
+   }
+  }
+  .act{
+    filter:brightness(1.5);
+  }
+ }
+ @media  screen and (max-width: 880px) {
+     .thumbnail{
+      justify-content: start;
+     }
+     .slider, .list, .item,.content h2{
+      font-size: 20px;
+     }
+     .arrows{
+      top: 15%;
+     }
+ }
+}

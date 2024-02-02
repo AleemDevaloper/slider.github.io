@@ -1,0 +1,18 @@
+$main-color: cyan;
+$sub-main-color: white;
+$sub2-main-color: rgb(150, 150, 150);
+$grey: #d9d9d9;
+$sub3-main-color: black;
+$sub4-color: rgb(49, 49, 49);
+$f-primary: 'Roboto' 'NunitoSans';
+@font-face {
+    font-family: Roboto;
+    font-size: 40px;
+    src: url('/Assets/fonts/Roboto/Roboto-Medium.ttf');
+}
+@font-face {
+    font-family: NunitoSans;
+    font-size: 40px;
+    src: url('/Assets/fonts/Nunito_Sans/static/NunitoSans_10pt-Medium.ttf');
+}
+
